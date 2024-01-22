@@ -15,6 +15,7 @@ class _InputPageState extends State<InputPage> {
   Color maleCardColor = kActiveCardColor;
   Color femaleCardColor = kActiveCardColor;
   int height = 180;
+  int weight = 60;
 
   @override
   Widget build(BuildContext context) {
@@ -106,39 +107,43 @@ class _InputPageState extends State<InputPage> {
               ),
             ),
           ),
-          // Expanded(
-          //   child: Row(
-          //     children: [
-          //       Expanded(
-          //           child: MyCard(
-          //             onTapFunc: () {
-          //               setState(() {
-          //                 curGender = Gender.male;
-          //               });
-          //             },
-          //             color: curGender == Gender.male
-          //                 ? kActiveCardColor
-          //                 : kInActiveCardColor,
-          //             cardChild: IconContent(
-          //               icon: FontAwesomeIcons.mars,
-          //               label: "MALE",
-          //             ),
-          //           )),
-          //       Expanded(
-          //           child: MyCard(
-          //             onTapFunc: () {
-          //               setState(() {
-          //                 curGender = Gender.female;
-          //               });
-          //             },
-          //             color: curGender == Gender.female
-          //                 ? kActiveCardColor
-          //                 : kInActiveCardColor,
-          //             cardChild: Text("qqq"),
-          //           )),
-          //     ],
-          //   ),
-          // ),
+          Expanded(
+            child: Row(
+              children: [
+                Expanded(
+                    child: MyCard(
+                      onTapFunc: () {
+                        setState(() {
+                          curGender = Gender.male;
+                        });
+                      },
+                      color: curGender == Gender.male
+                          ? kActiveCardColor
+                          : kInActiveCardColor,
+                      cardChild: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text("WEIGHT", style: kLabelTextStyle),
+                          Text(weight.toString(), style: kNumberTextStyle,),
+
+                        ],
+                      )
+                    )),
+                Expanded(
+                    child: MyCard(
+                      onTapFunc: () {
+                        setState(() {
+                          curGender = Gender.female;
+                        });
+                      },
+                      color: curGender == Gender.female
+                          ? kActiveCardColor
+                          : kInActiveCardColor,
+                      cardChild: TextButton(),
+                    )),
+              ],
+            ),
+          ),
 
           Container(
             // child: Text("qqq"),
