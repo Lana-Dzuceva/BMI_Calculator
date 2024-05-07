@@ -5,7 +5,8 @@ class MyCard extends StatelessWidget {
   Color color;
   final Function()? onTapFunc;
 
-   MyCard({required this.cardChild, required this.color, required this.onTapFunc});
+  MyCard(
+      {super.key, required this.cardChild, required this.color, required this.onTapFunc});
 
   @override
   Widget build(BuildContext context) {
@@ -13,11 +14,8 @@ class MyCard extends StatelessWidget {
       onTap: onTapFunc,
       child: Container(
         margin: const EdgeInsets.all(15),
-        // height: 200,
-        // width: double.infinity,
         decoration: BoxDecoration(
-            color: color,
-            borderRadius: BorderRadius.circular(10)),
+            color: color, borderRadius: BorderRadius.circular(10)),
         child: cardChild,
       ),
     );
